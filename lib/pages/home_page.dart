@@ -1,80 +1,50 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  static Widget appName = const Text(
+    'FIRST ELD',
+    style: const TextStyle(
+        color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
+  );
+  static Widget badyName = RichText(
+    text: TextSpan(
+        text: "Hello, trucker.",
+        style: const TextStyle(
+            color: Colors.white, fontSize: 43, fontWeight: FontWeight.bold),
+        children: [
+          TextSpan(
+            text: '\n         Login to your account',
+            style: const TextStyle(
+                color: Colors.grey, fontSize: 19, fontWeight: FontWeight.bold),
+          )
+        ]),
+  );
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        flexibleSpace: Image.network(
-            'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ9dz3a-yebsM1VP6JhDCnxCvvg1D7mDs1Qg&usqp=CAU'),
-        toolbarHeight: 100,
-        elevation: 5,
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: RichText(
-            text: const TextSpan(
-                style: TextStyle(color: Colors.red),
-                children: <TextSpan>[
-              TextSpan(text: "I   "),
-              TextSpan(
-                  text: "applications", style: TextStyle(color: Colors.yellow))
-            ])),
-        actions: [
-          PopupMenuButton(itemBuilder: (BuildContext context) {
-            return [
-              const PopupMenuItem(child: Text("O tirkeme")),
-              const PopupMenuItem(child: Text("Men jonundo")),
-              const PopupMenuItem(child: Text("talruu")),
-            ];
-          }),
-          const Icon(
-            Icons.facebook,
-            color: Colors.blue,
-            size: 10,
-          ),
-          const SizedBox(width: 10),
-          const Padding(
-            padding: EdgeInsets.only(right: 35),
-            child: Icon(
-              Icons.favorite,
-              color: Colors.red,
-              size: 10,
-            ),
-          ),
-        ],
-        leading: Row(
-          children: const [
-            Icon(Icons.add, color: Colors.blueAccent, size: 10),
-            Icon(Icons.mail, color: Colors.blueAccent, size: 10),
-            Icon(
-              Icons.face,
-              color: Colors.blueAccent,
-              size: 10,
-            ),
-          ],
+        body: Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("assets/image 10.png"),
+          fit: BoxFit.cover,
         ),
       ),
-      body: Center(
+      child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              color: Colors.black,
-              height: 120,
-              width: 80,
-              child: Center(
-                child: Text(
-                  'Flutter camp',
-                  //textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 300),
+              child: appName,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 150),
+              child: badyName,
             ),
           ],
         ),
       ),
-    );
+    ));
   }
 }
